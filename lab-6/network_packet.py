@@ -4,7 +4,10 @@ checksum = int(input("enter the checksum"))
 ue=0
 for i in a:
     ue ^= i
-if ue== checksum:
+
+if len(a) != n:
+    print("anomaly")
+elif ue== checksum:
     print("ok")
 else:
-    print("not ok")
+    print("anomaly")
