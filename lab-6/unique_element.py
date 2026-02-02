@@ -1,4 +1,5 @@
-a=[1,3,1,2,3,4,5,4,5]
+n=int(input("enter the size of array"))
+a = list(map(int,input("enter the elements of array")))
 ue=0
 for i in a:
     ue ^= i
