@@ -22,4 +22,5 @@ def merge_sort(arr):
 
 a = list(map(int, input("enter the elements").split()))
 sorted_a = merge_sort(a)
-print(sorted_a)
+for i in sorted_a:
+    print(i,end=" ")
