@@ -29,6 +29,6 @@ for i in range(a):
     arr.append(sp)
 
 sorted_a = merge_sort(arr)
-for i in range (-1,-11,-1):
+for i in range (10):
     tag_no=dict.get(sorted_a[i])
-    print(tag_no)
+    print(tag_no,sorted_a[i])
