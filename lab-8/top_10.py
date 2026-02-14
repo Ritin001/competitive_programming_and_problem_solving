@@ -20,8 +20,15 @@ def merge_sort(arr):
     right = merge_sort(arr[mid:])
     return merge(left, right)
 
-a = list(map(int, input("enter the elements").split()))
-sorted_a = merge_sort(a)
-for i in sorted_a:
-    print(i,end=" ")
-    
+a =int(input())
+arr=[]
+dict={}
+for i in range(a):
+    sp , tag=map(int,input("enter the timing").split())
+    dict[sp]=tag
+    arr.append(sp)
+
+sorted_a = merge_sort(arr)
+for i in range (-1,-11,-1):
+    tag_no=dict.get(sorted_a[i])
+    print(tag_no)
