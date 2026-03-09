@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Restaurant Menu</title>
+
+<style>
+body{
+font-family:Arial;
+text-align:center;
+}
+
+nav{
+background:black;
+padding:10px;
+}
+
+nav a{
+color:white;
+margin:10px;
+text-decoration:none;
+}
+
+img{
+width:100%;
+max-width:300px;
+height:auto;
+}
+
+footer{
+background:black;
+color:white;
+padding:10px;
+}
+</style>
+
+</head>
+
+<body>
+
+<nav>
+<a href="#starters">Starters</a>
+<a href="#main">Main Course</a>
+<a href="#dessert">Desserts</a>
+</nav>
+
+<h1>Restaurant Menu</h1>
+
+<section id="starters">
+<h2>Starters</h2>
+<img src="starter.jpg">
+<p>Soup - ₹120</p>
+<p>Spring Roll - ₹150</p>
+</section>
+
+<nav>
+<a href="#starters">Starters</a>
+<a href="#main">Main Course</a>
+<a href="#dessert">Desserts</a>
+</nav>
+
+<section id="main">
+<h2>Main Course</h2>
+<img src="main.jpg">
+<p>Paneer Butter Masala - ₹250</p>
+<p>Veg Biryani - ₹220</p>
+</section>
+
+<section id="dessert">
+<h2>Desserts</h2>
+<img src="dessert.jpg">
+<p>Ice Cream - ₹120</p>
+<p>Gulab Jamun - ₹100</p>
+</section>
+
+<footer>
+<a href="#starters">Starters</a> |
+<a href="#main">Main Course</a> |
+<a href="#dessert">Desserts</a>
+</footer>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Signup Form</title>
+</head>
+
+<body>
+
+<h2>Signup Form</h2>
+
+<form>
+
+Name:<br>
+<input type="text" name="name" required><br><br>
+
+Date of Birth:<br>
+<input type="date" name="dob" required><br><br>
+
+Age:<br>
+<input type="range" id="age" name="age" min="18" max="100"><br><br>
+
+Email:<br>
+<input type="email" name="email" required><br><br>
+
+Website:<br>
+<input type="url" name="website"><br><br>
+
+<input type="submit" value="Sign Up">
+
+</form>
+
+</body>
+</html>
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Fibonacci</title>
+
+<script>
+
+var n = prompt("Enter number of terms");
+
+var a=0,b=1,c;
+var result=a+" "+b+" ";
+
+for(var i=2;i<n;i++)
+{
+c=a+b;
+result=result+c+" ";
+a=b;
+b=c;
+}
+
+alert("Fibonacci Series: "+result);
+
+</script>
+
+</head>
+<body>
+</body>
+</html>
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Squares</title>
+
+<script>
+
+var n = prompt("Enter a number");
+var result="";
+
+for(var i=1;i<=n;i++)
+{
+result=result + i + "^2 = " + (i*i) + "\n";
+}
+
+alert(result);
+
+</script>
+
+</head>
+<body>
+</body>
+</html>
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Canvas Drawing</title>
+
+<style>
+canvas{
+border:2px solid black;
+}
+</style>
+
+<script>
+
+let canvas,ctx;
+let drawing=false;
+
+function startDraw(e){
+drawing=true;
+ctx.beginPath();
+ctx.moveTo(e.offsetX,e.offsetY);
+}
+
+function draw(e){
+if(!drawing) return;
+ctx.lineTo(e.offsetX,e.offsetY);
+ctx.stroke();
+}
+
+function stopDraw(){
+drawing=false;
+}
+
+window.onload=function(){
+canvas=document.getElementById("myCanvas");
+ctx=canvas.getContext("2d");
+}
+
+</script>
+
+</head>
+
+<body>
+
+<article>
+
+<h2>Canvas Drawing Application</h2>
+
+<section>
+
+<canvas id="myCanvas"
+width="500"
+height="300"
+onmousedown="startDraw(event)"
+onmousemove="draw(event)"
+onmouseup="stopDraw()">
+</canvas>
+
+</section>
+
+</article>
+
+</body>
+</html>
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Advanced Signup</title>
+
+<script>
+
+function calculateAge(){
+
+let dob=document.getElementById("dob").value;
+let birth=new Date(dob);
+let today=new Date();
+
+let age=today.getFullYear()-birth.getFullYear();
+
+document.getElementById("age").value=age;
+
+showFields(age);
+}
+
+function showFields(age){
+
+let ageField=document.getElementById("ageField");
+let emailField=document.getElementById("emailField");
+let webField=document.getElementById("webField");
+
+if(age<18){
+ageField.style.display="none";
+emailField.style.display="none";
+webField.style.display="none";
+}
+
+else if(age>=18 && age<=25){
+ageField.style.display="block";
+emailField.style.display="block";
+webField.style.display="none";
+}
+
+else{
+ageField.style.display="block";
+emailField.style.display="block";
+webField.style.display="block";
+}
+}
+
+</script>
+
+</head>
+
+<body>
+
+<h2>Signup Form</h2>
+
+<form>
+
+Name:<br>
+<input type="text" required><br><br>
+
+Date of Birth:<br>
+<input type="date" id="dob" onchange="calculateAge()" required><br><br>
+
+<div id="ageField">
+Age:<br>
+<input type="range" id="age" min="18" max="100"><br><br>
+</div>
+
+<div id="emailField">
+Email:<br>
+<input type="email" required><br><br>
+</div>
+
+<div id="webField">
+Website:<br>
+<input type="url"><br><br>
+</div>
+
+<input type="submit" value="Sign Up">
+
+</form>
+
+</body>
+</html>
