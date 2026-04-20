@@ -1,4 +1,3 @@
-
 def com_lps(pattern):
     n=len(pattern)
     lps=[0]*n
