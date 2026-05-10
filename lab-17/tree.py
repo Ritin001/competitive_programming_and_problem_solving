@@ -1,13 +1,31 @@
-n, e = map(int, input().split())
-
-edges = []
-for _ in range(e):
-    u, v = map(int, input().split())
-    edges.append((u, v))
-
-start = int(input())
-
-graph = build_graph(edges, n)
-
-print("BFS:", bfs(graph, start))
-print("DFS:", dfs(graph, start))
+from collections import deque
+def bfs(graph, start):
+    visited= set()
+    queue= deque([start])
+    while queue:
+        node = queue.popleft()
+        if node not in visited:
+            print(node)
+            visited.add(node)
+            for nieghbour in graph[node]:
+                if nieghbour not in visited:
+                    queue.append(nieghbour)
+    print()
+def dfs(graph,node,visited):
+    if node not in visited:
+        print(node)
+        visited.add(node)
+        for neighbour in graph[node]:
+            dfs(graph,neighbour,visited)
+graph = {
+    'A': ['B', 'C'],
+    'B': ['D', 'E'],
+    'C': ['F'],
+    'D': [],
+    'E': ['F'],
+    'F': []
+}
+start='A'
+bfs(graph, start)
+visited= set()
+dfs(graph,start,visited)

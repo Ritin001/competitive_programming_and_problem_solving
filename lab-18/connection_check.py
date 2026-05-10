@@ -1,19 +1,29 @@
+from collections import deque
+
 n,e= map(int,input("enter the edges and nodes").split())
-adj_matrix=[[0]*n for _ in range(n)]
 adj_list =[[] for _ in range(n)]
 for i in range(e):
     u,v=map(int,input().split())
 
-    adj_matrix[u][v]=1
-    adj_matrix[u][v]=1
-
     adj_list[u].append(v)
     adj_list[v].append(u)
 
+s, d = map(int, input().split()) 
+visited = [False] * n
+queue=deque([s])
+visited[s]=True
+found=False
+while queue:
+    node=queue.popleft()
+    if node==d:
+        found = True
+        break
+    for neighbour in adj_list[node]:
+        if not visited[neighbour]:
+            visited[neighbour]=True
+            queue.append(neighbour)
 
-b,l=map(int,input().split())
-if adj_matrix[b][l]==1:
-    print("connection is there")
+if found:
+    print("Path exists between the given nodes.")
 else:
-    print("connection is not there")
-    
+    print("No path exists between the given nodes.")
